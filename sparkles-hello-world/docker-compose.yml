@@ -1,14 +1,18 @@
-version: "3.7"
+version: '3.8'
 
 services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - "3000:8080"      # Map port 8080 in the container to 3000 on the host
+      - "11434:8080"     # Map port 8080 in the container to 11434 on the host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "memer.local:host-gateway"  # Map memer.local to the host gateway
+    volumes:
+      - open-webui:/app/backend/data
+    restart: always
 
-  app_proxy:
-    environment:
-      # The format here is: <app-id>_<docker-service-name>_1
-      APP_HOST: sparkles-hello-world_server_1
-      APP_PORT: 3000
-    
-  server:
-    image: getumbrel/community-app-store-hello-world:latest
-    user: "1000:1000"
-    init: true
+volumes:
+  open-webui:
