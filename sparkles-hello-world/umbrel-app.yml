@@ -2,7 +2,7 @@ manifestVersion: 1
 id: sparkles-hello-world
 name: OpenWebUi
 tagline: Use AI smarter, on your Umbrel.
-icon: https://svgur.com/i/mvA.svg
+icon: https://avatars.githubusercontent.com/u/158137808?s=200&v=4
 category: Ai
 version: "1.0.0"
 port: 3000
